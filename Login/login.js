@@ -36,8 +36,34 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         // Perform your AJAX/Fetch login
+        const username = loginForm.querySelector("#username").value;
+        const password = loginForm.querySelector("#password").value;
+        var xhr = new XMLHttpRequest();
+        var url = "/api/login";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json);
+                if (json.success) {
+                    setFormMessage(loginForm, "success", "Login successful!");
+                    document.cookie="token="+json.token+";path=/";
+                    document.cookie="username="+json.username+";path=/";
+                    setTimeout(() => {
+                        window.location.href = "/Dashboard/dashboard.html";
+                    }, 1000);
+                } else {
+                    setFormMessage(loginForm, "error", "Invalid username/password combination");
+                }
+            }
+        };
+        var data = JSON.stringify({
+            username: username,
+            password: password
+        });
+        xhr.send(data);
 
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
     });
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
