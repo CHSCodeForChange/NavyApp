@@ -1,7 +1,7 @@
-window.onload = function() {
+window.onload = refreshannouncements(0, 50);
+function refreshannouncements(page, amount) {
     var announcementslist=document.getElementById("announcementslist");
     var xhr = new XMLHttpRequest();
-    var page=0; var amount=50;
     var url = "/api/announcementrange";
     url+="?page="+page+"&amount="+amount;
     xhr.open("GET", url, true);
