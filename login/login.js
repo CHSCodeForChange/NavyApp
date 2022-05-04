@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(json);
                 if (json.success) {
                     setFormMessage(loginForm, "success", "Login successful!");
-                    document.cookie="token="+json.token+";path=/";
-                    document.cookie="username="+json.username+";path=/";
+                    document.cookie="token="+json.token+";expires="+json.expires+";path=/";
+                    document.cookie="username="+json.username+";expires="+json.expires+";path=/";
                     setTimeout(() => {
                         window.location.href = "/Dashboard/dashboard.html";
                     }, 1000);
@@ -78,3 +78,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+window.onload=check_token();
+
+function check_token() {
+    var xhr = new XMLHttpRequest();
+    var url = "/api/check_token";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json);
+            if (json.success) {
+                window.location.href = "/Dashboard/dashboard.html";
+            }
+        }
+    };
+    var data = JSON.stringify({
+        token: getCookie("token")
+    });
+    xhr.send(data);
+}
