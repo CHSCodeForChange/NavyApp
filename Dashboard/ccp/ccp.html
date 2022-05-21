@@ -1,146 +1,107 @@
-<!Doctype HTML>
-	<html>
-	<head>
-		<title></title>
-		<link rel="stylesheet" href="../dashboard.css" type="text/css"/>
-        <link rel="stylesheet" href="cpp.css" type="text/css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-		<script src="/mainlibrary.js"></script>
-		<script src="./ccp.js"></script>
-		<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Cadet Profile</title>
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="../dashboard.css" rel="stylesheet">
+	<link href="cpp.css" rel="stylesheet">
 
-
-	<body>
-		
-		<div id="mySidenav" class="sidenav">
-            <p class="logo"><span>N</span>avy Sea Cadet</p>
-            <a href="../dashboard.html" class="icon-a"><i class="fa fa-dashboard icons"></i>   Dashboard      </a>
-            <a href="#"class="icon-a"><i class="fa fa-users icons"></i>   Add Cadet</a>
-            <a href="../CA/ca.html"class="icon-a"><i class="fa fa-list-alt icons"></i>   Add Event</a>
-			<a href="../ACE/ACE.html"class="icon-a"><i class="fa fa-tasks icons"></i>   Announcements</a>
-			<a href="../../login/login-page.html"class="icon-a"> Sign Out</a>
-
-	</div>
-	<div id="main">
-
-		<div class="head">
-			<div class="col-div-6">
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >☰ Dashboard</span>
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >☰ Dashboard</span>
-    
-
-    <div class="form">
-        <div class="title">Create a Cadet</div>
-        <div class="subtitle">Input the Information!</div>
-        <div class="input-container ic1">
-          <input id="firstname" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="firstname" class="placeholder">First name</label>
-        </div>
-        <div class="input-container ic2">
-          <input id="lastname" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="lastname" class="placeholder">Last name</label>
-        </div>
-        <div class="input-container ic2">
-          <input id="email" class="input" type="text" placeholder=" " />
-          <div class="cut cut-short"></div>
-          <label for="email" class="placeholder">Email</>
-        </div>
-		<div class="input-container ic2">
-			<input id="role" class="input" type="text" placeholder=" " />
-			<div class="cut cut-short"></div>
-			<label for="role" class="placeholder">Role</>
-		  </div>
-		<style>
-			.description {
-				height: 80%;
-				max-height: 400px;
-				border: 1px solid #eee;
-				border-radius: 12px;
-				resize: none;
-				margin-top: 30px;
-				padding: 20px;
-				background-color: #eee;
-				box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-			}
-			.description-edit {
-				height: 80%;
-				max-height: 400px;
-				border: 1px solid #eee;
-				resize: none;
-				margin-top: 30px;
-				padding: 20px;
-				background-color: #eee;
-				box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-			}
-		</style>
-		<div class="description">
-			<div style="overflow-y:auto;width:100%; height:100%;">
-				<div id="description" class="description-edit">
-					<div>Hello world!</div>
-					<div>Some initial <b>bold</b>text</div>
-					<div><br></div>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2 class="text-muted">Navy <span class="danger">Cadets</span> </h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+			<div class="sidebar">
+                <a href="../dashboard.html">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Create Cadet</h3>
+                </a>
+                <a href="../ACE/ACE.html">
+                    <span class="material-icons-sharp">mail</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">54</span>
+                </a>
+                <a href="../Add Announcment/Create Announcments.html">
+                    <span class="material-icons-sharp">send</span>
+                    <h3>Send</h3>
+                </a>
+                <a href="../CA/ca.html">
+                    <span class="material-icons-sharp">add</span>
+                    <h3>Add Event</h3>
+                </a>
+                <a href="../../index.html">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!--End of Aside-->
+        <main>
+			<div class="form">
+				<div class="title">Create a Cadet</div>
+				<div class="subtitle">Input the Information!</div>
+				<div class="input-container ic1">
+				  <input id="firstname" class="input" type="text" placeholder=" " />
+				  <div class="cut"></div>
+				  <label for="firstname" class="placeholder">First name</label>
 				</div>
-			</div>
-			
-		</div>
-		
-		<script>
-			
-			var basicEditor = new Quill('#description', {
-				modules: {
-					'toolbar': [
-					  [{ 'font': [] }, { 'size': [] }],
-					  [ 'bold', 'italic', 'underline', 'strike' ],
-					  [{ 'color': [] }, { 'background': [] }],
-					  [{ 'script': 'super' }, { 'script': 'sub' }],
-					  [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
-					  [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
-					  [ 'direction', { 'align': [] }],
-					  [ 'link', 'image', 'video', 'formula' ],
-					  [ 'clean' ]
-				]
-			 },
-				theme: 'snow'
-			});
-		</script>
-        <button onclick="submitcadet()" type="text" class="submit">Add Cadet</button>
-      </div>
-      
-      
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-
-	  $(".nav").click(function(){
-	    $("#mySidenav").css('width','70px');
-	    $("#main").css('margin-left','70px');
-	    $(".logo").css('visibility', 'hidden');
-	    $(".logo span").css('visibility', 'visible');
-	     $(".logo span").css('margin-left', '-10px');
-	     $(".icon-a").css('visibility', 'hidden');
-	     $(".icons").css('visibility', 'visible');
-	     $(".icons").css('margin-left', '-8px');
-	      $(".nav").css('display','none');
-	      $(".nav2").css('display','block');
-	  });
-
-	$(".nav2").click(function(){
-	    $("#mySidenav").css('width','300px');
-	    $("#main").css('margin-left','300px');
-	    $(".logo").css('visibility', 'visible');
-	     $(".icon-a").css('visibility', 'visible');
-	     $(".icons").css('visibility', 'visible');
-	     $(".nav").css('display','block');
-	      $(".nav2").css('display','none');
-	 });
-
-	</script>
-
-	</body>
-
-
-	</html>
+				<div class="input-container ic2">
+				  <input id="lastname" class="input" type="text" placeholder=" " />
+				  <div class="cut"></div>
+				  <label for="lastname" class="placeholder">Last name</label>
+				</div>
+				<div class="input-container ic2">
+				  <input id="email" class="input" type="text" placeholder=" " />
+				  <div class="cut cut-short"></div>
+				  <label for="email" class="placeholder">Email</>
+				</div>
+				<div class="input-container ic2">
+					<input id="role" class="input" type="text" placeholder=" " />
+					<div class="cut cut-short"></div>
+					<label for="role" class="placeholder">Role</>
+				  </div>
+				  <div class="input-container ic2">
+					<input id="description" class="input" type="text" placeholder=" " />
+					<div class="cut cut-short"></div>
+					<label for="description" class="placeholder">Description</>
+				  </div>
+				<script>
+					
+					var basicEditor = new Quill('#description', {
+						modules: {
+							'toolbar': [
+							  [{ 'font': [] }, { 'size': [] }],
+							  [ 'bold', 'italic', 'underline', 'strike' ],
+							  [{ 'color': [] }, { 'background': [] }],
+							  [{ 'script': 'super' }, { 'script': 'sub' }],
+							  [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+							  [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+							  [ 'direction', { 'align': [] }],
+							  [ 'link', 'image', 'video', 'formula' ],
+							  [ 'clean' ]
+						]
+					 },
+						theme: 'snow'
+					});
+				</script>
+				<button onclick="submitcadet()" type="text" class="submit">Add Cadet</button>
+			  </div>
+    </div>
+    
+</body>
+</html>

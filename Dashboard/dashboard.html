@@ -1,121 +1,111 @@
-<!Doctype HTML>
-	<html>
-	<head>
-		<title></title>
-		<link rel="stylesheet" href="dashboard.css" type="text/css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="/mainlibrary.js"></script>
-		<script src="./dashboard.js"></script>
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="dashboard.css" rel="stylesheet">
 
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2 class="text-muted">Navy <span class="danger">Cadets</span> </h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="ccp/ccp.html">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Create Cadet</h3>
+                </a>
+                <a href="ACE/ACE.html">
+                    <span class="material-icons-sharp">mail</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">54</span>
+                </a>
+                <a href="Add Announcment/Create Announcments.html">
+                    <span class="material-icons-sharp">send</span>
+                    <h3>Send</h3>
+                </a>
+                <a href="CA\ca.html">
+                    <span class="material-icons-sharp">add</span>
+                    <h3>Add Event</h3>
+                </a>
+                <a href="../index.html">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!--End of Aside-->
+        <main>
+            <h1>Dashboard</h1>
 
-	<body>
-		
-		<div id="mySidenav" class="sidenav">
-      <p class="logo"><span>N</span>avy Sea Cadet</p>
-      <a href="#" class="icon-a"><i class="fa fa-dashboard icons"></i>   Dashboard      </a>
-      <a href="ccp\ccp.html"class="icon-a"><i class="fa fa-users icons"></i>   Add Cadet</a>
-      <a href="CA/ca.html"class="icon-a"><i class="fa fa-list-alt icons"></i>   Add Event</a>
-      <a href="ACE/ACE.html"class="icon-a"><i class="fa fa-tasks icons"></i>   Announcements</a>
-	  <a onclick="logout()" class="icon-a"> Sign Out</a>
+            <div class="date">
+                <input type="date">
+            </div>
+            <div class="insights">
+                <div class= "sales">
+                    <span class="material-icons-sharp">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Total Cadets</h3>
+                            <h1>43</h1>
+                        </div>
+                    </div> 
+                </div>
+            </div>
 
+            <div class="recent-orders">
+                <h2>Cadets</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>About</th>
+                            <th>Role</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Diego Valencia</td>
+                            <td>Bad at Valorant</td>
+                            <td>NEU Student</td>
+                            <td class="primary">More Info</td>
+                        </tr>
+                    </tbody>
+                </table>
+               <!-- <a href="">Show All</a>-->
+            </div>
+        </main>
 
-	</div>
-	<div id="main">
-
-		<div class="head">
-			<div class="col-div-6">
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >☰ Dashboard</span>
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >☰ Dashboard</span>
-	</div>
-		
-		<div class="col-div-6">
-	</div>
-		<div class="clearfix"></div>
-	</div>
-
-		<div class="clearfix"></div>
-		<br/>
-		
-		<div class="col-div-3">
-			<div class="box">
-				<p>67<br/><span>Cadets</span></p>
-				<i class="fa fa-users box-icon"></i>
-			</div>
-		</div>
-		<div class="col-div-3">
-			<div class="box">
-				<p>88<br/><span>Events</span></p>
-				<i class="fa fa-list box-icon"></i>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-		<br/><br/>
-		<div class="col-div-8">
-			<div class="box-8">
-			<div class="content-box">
-				<p><b>Cadet List</b></p>
-				<br/>
-				<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>About</th>
-	  </tr>
-	  <tr>
-	    <td>Diego Valencia</td>
-	    <td>Navy Sea Cadet</td>
-	  </tr>
-	  <tr>
-	    <td>Bill Qian</td>
-	    <td>Navy Sea Cadet</td>
-	  </tr>
-	  <tr>
-	    <td>Archit Kalra</td>
-	    <td>Navy Sea Cadet</td>
-	  </tr>
-	  <tr>
-	    <td>Aditya Ariyur</td>
-	    <td>Navy Sea Cadet</td>
-	  </tr>
-	  
-	  
-	</table>
-			</div>
-		</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-
-	  $(".nav").click(function(){
-	    $("#mySidenav").css('width','70px');
-	    $("#main").css('margin-left','70px');
-	    $(".logo").css('visibility', 'hidden');
-	    $(".logo span").css('visibility', 'visible');
-	     $(".logo span").css('margin-left', '-10px');
-	     $(".icon-a").css('visibility', 'hidden');
-	     $(".icons").css('visibility', 'visible');
-	     $(".icons").css('margin-left', '-8px');
-	      $(".nav").css('display','none');
-	      $(".nav2").css('display','block');
-	  });
-
-	$(".nav2").click(function(){
-	    $("#mySidenav").css('width','300px');
-	    $("#main").css('margin-left','300px');
-	    $(".logo").css('visibility', 'visible');
-	     $(".icon-a").css('visibility', 'visible');
-	     $(".icons").css('visibility', 'visible');
-	     $(".nav").css('display','block');
-	      $(".nav2").css('display','none');
-	 });
-
-	</script>
-
-	</body>
-
-
-	</html>
+        <div class="right">
+            <div class="top">
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Welcome, <b>Admin</b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

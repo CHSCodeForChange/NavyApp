@@ -1,35 +1,59 @@
-<!Doctype HTML>
-	<html>
-	<head>
-		<title></title>
-		<link rel="stylesheet" href="../dashboard.css" type="text/css"/>
-        <link rel="stylesheet" href="ca.css" type="text/css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Announcement</title>
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="../dashboard.css" rel="stylesheet">
+	<link href="ca.css" rel="stylesheet">
 
-
-	<body>
-		
-		<div id="mySidenav" class="sidenav">
-        <p class="logo"><span>N</span>avy Sea Cadet</p>
-        <a href="../dashboard.html" class="icon-a"><i class="fa fa-dashboard icons"></i>   Dashboard      </a>
-        <a href="../ccp/ccp.html"class="icon-a"><i class="fa fa-users icons"></i>   Add Cadet</a>
-        <a href="#"class="icon-a"><i class="fa fa-list-alt icons"></i>   Add Event</a>
-		<a href="../ACE/ACE.html"class="icon-a"><i class="fa fa-tasks icons"></i>   Announcements</a>
-		<a onclick="logout()" class="icon-a"> Sign Out</a>
-		
-
-	</div>
-	<div id="main">
-
-		<div class="head">
-			<div class="col-div-6">
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >☰ Dashboard</span>
-	<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >☰ Dashboard</span>
-    
-
-    <div class="form">
-        <div class="title">Create an Event</div>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2 class="text-muted">Navy <span class="danger">Cadets</span> </h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+			<div class="sidebar">
+                <a href="../dashboard.html">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="../ccp/ccp.html">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Create Cadet</h3>
+                </a>
+                <a href="../ACE/ACE.html">
+                    <span class="material-icons-sharp">mail</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">54</span>
+                </a>
+                <a href="../Add Announcment/Create Announcments.html">
+                    <span class="material-icons-sharp">send</span>
+                    <h3>Send</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">add</span>
+                    <h3>Add Event</h3>
+                </a>
+                <a href="../../index.html">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!--End of Aside-->
+        <main>
+			<div class="form">
+				<div class="title">Create an Event</div>
         <div class="subtitle">Input the Information!</div>
         <div class="input-container ic1">
           <input id="Event Name" class="input" type="text" placeholder=" " />
@@ -48,38 +72,27 @@
           </div>
         <button type="text" class="submit">Add Event</button>
       </div>
-      
-      
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-
-	  $(".nav").click(function(){
-	    $("#mySidenav").css('width','70px');
-	    $("#main").css('margin-left','70px');
-	    $(".logo").css('visibility', 'hidden');
-	    $(".logo span").css('visibility', 'visible');
-	     $(".logo span").css('margin-left', '-10px');
-	     $(".icon-a").css('visibility', 'hidden');
-	     $(".icons").css('visibility', 'visible');
-	     $(".icons").css('margin-left', '-8px');
-	      $(".nav").css('display','none');
-	      $(".nav2").css('display','block');
-	  });
-
-	$(".nav2").click(function(){
-	    $("#mySidenav").css('width','300px');
-	    $("#main").css('margin-left','300px');
-	    $(".logo").css('visibility', 'visible');
-	     $(".icon-a").css('visibility', 'visible');
-	     $(".icons").css('visibility', 'visible');
-	     $(".nav").css('display','block');
-	      $(".nav2").css('display','none');
-	 });
-
-	</script>
-
-	</body>
-
-
-	</html>
+				<script>
+					
+					var basicEditor = new Quill('#description', {
+						modules: {
+							'toolbar': [
+							  [{ 'font': [] }, { 'size': [] }],
+							  [ 'bold', 'italic', 'underline', 'strike' ],
+							  [{ 'color': [] }, { 'background': [] }],
+							  [{ 'script': 'super' }, { 'script': 'sub' }],
+							  [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+							  [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+							  [ 'direction', { 'align': [] }],
+							  [ 'link', 'image', 'video', 'formula' ],
+							  [ 'clean' ]
+						]
+					 },
+						theme: 'snow'
+					});
+				</script>
+			  </div>
+    </div>
+    
+</body>
+</html>

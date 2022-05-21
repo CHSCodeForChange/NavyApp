@@ -88,12 +88,12 @@
     background: #0d63c5;
     background: #3ea4df;
     color: #fff;
-    transition: all 0.3s ease;
+    transition: all 0.45s ease;
   }
 
   .navbar__links:hover {
     color: #013788;
-    transition: all 0.175s ease;
+    transition: all 0.375s ease;
   }
 @media screen and (max-width: 960px) {
     .navbar__container {
