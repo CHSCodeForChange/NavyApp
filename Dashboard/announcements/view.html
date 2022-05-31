@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,11 @@
     <!--Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="../dashboard.css" rel="stylesheet">
-	<link href="Create Announcements.css" rel="stylesheet">
+    <link href="view_announcement.css" rel="stylesheet">
+    <script src="/mainlibrary.js"></script>
 
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -26,7 +29,7 @@
                 <a href="../ACE/ACE.html">
                     <span class="material-icons-sharp">mail</span>
                     <h3>Messages</h3>
-                    <span class="message-count">54</span>
+                    <span id="unread_messages_count" class="message-count">54</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">send</span>
@@ -44,41 +47,32 @@
         </aside>
         <!--End of Aside-->
         <main>
-			<div class="form">
-				<div class="title">Create Announcement</div>
-				<div class="subtitle">Input the Information!</div>
-				<div class="input-container ic1">
-				  <input id="name" class="input" type="text" placeholder=" " />
-				  <div class="cut"></div>
-				  <label for="name" class="placeholder">Name</label>
-				</div>
-				<div class="input-container ic2">
-				  <input id="Announcement" class="input" type="text" placeholder=" " />
-				  <div class="cut"></div>
-				  <label for="Announcement" class="placeholder">Announcement</label>
-				</div>
-				<script>
-					
-					var basicEditor = new Quill('#description', {
-						modules: {
-							'toolbar': [
-							  [{ 'font': [] }, { 'size': [] }],
-							  [ 'bold', 'italic', 'underline', 'strike' ],
-							  [{ 'color': [] }, { 'background': [] }],
-							  [{ 'script': 'super' }, { 'script': 'sub' }],
-							  [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
-							  [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
-							  [ 'direction', { 'align': [] }],
-							  [ 'link', 'image', 'video', 'formula' ],
-							  [ 'clean' ]
-						]
-					 },
-						theme: 'snow'
-					});
-				</script>
-				<button onclick="submitcadet()" type="text" class="submit">Send</button>
-			  </div>
+
+            <div class="form">
+
+                <!-- <div style="display:flex; justify-items: baseline;"><span id="title" class="title"></span><a href="">edit</a></div> -->
+                <style>
+                    .editannouncement {
+                        color: inherit;
+                        transition: 0.3s;
+                    }
+                    .editannouncement:hover {
+                        color: #777;
+                    }
+                </style>
+                <a onclick="window.location='edit.html'+window.location.search;" class="editannouncement">
+                    <span id="title" class="title"></span>
+                    <span style="margin-left: 5px;" class="material-icons-sharp">edit_note</span>
+                </a>
+                <div id="subtitle" class="subtitle" style="margin-top: -10px; margin-bottom: 10px;"></div>
+                <div id="announcement" class="announcement">
+                </div>
+            </div>
+
+            <script src="view_announcement.js"></script>
+        </main>
     </div>
-    
+
 </body>
+
 </html>

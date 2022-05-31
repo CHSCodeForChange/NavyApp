@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Create Cadet Profile</title>
     <!--Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href="ACE.css" rel="stylesheet">
-
+    <link href="../dashboard.css" rel="stylesheet">
+	<link href="cpp.css" rel="stylesheet">
+  <script src="/mainlibrary.js"></script>
 </head>
 <body>
     <div class="container">
@@ -26,16 +27,16 @@
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="../ccp/ccp.html">
+                <a href="#">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Create Cadet</h3>
                 </a>
-                <a href="#">
+                <a href="../ACE/ACE.html">
                     <span class="material-icons-sharp">mail</span>
                     <h3>Messages</h3>
                     <span class="message-count">54</span>
                 </a>
-                <a href="../announcements/create_announcement.html">
+                <a href="../Add Announcment/Create Announcments.html">
                     <span class="material-icons-sharp">send</span>
                     <h3>Send</h3>
                 </a>
@@ -49,43 +50,36 @@
                 </a>
             </div>
         </aside>
-        <!--End of Aside-->
+
         <main>
-            <h1>Announcements</h1>
 
-            <div class="recent-orders">
-                <h2>Messages</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Message</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Diego Valencia</td>
-                            <td>I'm Bad at Valorant</td>
-                        </tr>
-                    </tbody>
-                </table>
-               <!-- <a href="">Show All</a>-->
+            <div class="form">
+
+                <!-- <div style="display:flex; justify-items: baseline;"><span id="title" class="title"></span><a href="">edit</a></div> -->
+                <style>
+                    .editannouncement {
+                        color: inherit;
+                        transition: 0.3s;
+                    }
+                    .editannouncement:hover {
+                        color: #777;
+                    }
+                </style>
+                <a href="" class="editannouncement">
+                    <span id="title" class="title"></span>
+                    <span style="margin-left: 5px;" class="material-icons-sharp">edit_note</span>
+                </a>
+                <div id="subtitle" class="subtitle" style="margin-top: -10px; margin-bottom: 10px;"></div>
+                <div id="announcement" class="announcement">
+                </div>
             </div>
+
+            <script src="cadet.js"></script>
         </main>
+    </div>
 
-        <div class="right">
-            <div class="top">
-            </div>
-            <div class="profile">
-                <div class="info">
-                    <p>Welcome, <b>Admin</b></p>
-                    <small class="text-muted">Admin</small>
-                </div>
-                <div class="profile-photo">
-                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
-                </div>
-            </div>
-        </div>
+    <div>
+        
     </div>
     
 </body>

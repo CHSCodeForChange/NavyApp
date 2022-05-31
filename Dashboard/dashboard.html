@@ -8,7 +8,7 @@
     <!--Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="dashboard.css" rel="stylesheet">
-
+    <script src="/mainlibrary.js"></script>
 </head>
 <body>
     <div class="container">
@@ -33,9 +33,9 @@
                 <a href="ACE/ACE.html">
                     <span class="material-icons-sharp">mail</span>
                     <h3>Messages</h3>
-                    <span class="message-count">54</span>
+                    <span class="message-count" id="unread_messages_count"></span>
                 </a>
-                <a href="Add Announcment/Create Announcments.html">
+                <a href="announcements/create_announcement.html">
                     <span class="material-icons-sharp">send</span>
                     <h3>Send</h3>
                 </a>
@@ -43,7 +43,7 @@
                     <span class="material-icons-sharp">add</span>
                     <h3>Add Event</h3>
                 </a>
-                <a href="../index.html">
+                <a onclick="logout()">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -62,7 +62,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3> Total Cadets</h3>
-                            <h1>43</h1>
+                            <h1 id="cadetcount">--</h1>
                         </div>
                     </div> 
                 </div>
@@ -79,7 +79,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="cadetpreview">
                         <tr>
                             <td>Diego Valencia</td>
                             <td>Bad at Valorant</td>
@@ -97,8 +97,8 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Welcome, <b>Admin</b></p>
-                    <small class="text-muted">Admin</small>
+                    <p>Welcome, <b id="usernamebold">Admin</b></p>
+                    <small class="text-muted" id="usernamesecondary">Admin</small>
                 </div>
                 <div class="profile-photo">
                     <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
@@ -106,6 +106,6 @@
             </div>
         </div>
     </div>
-    
+    <script src="dashboard.js"></script>
 </body>
 </html>

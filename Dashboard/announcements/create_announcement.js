@@ -3,12 +3,12 @@ window.onload = function () {
   count_unread_messages();
 };
 
-function send_success() {
+function send_success(id) {
   var button = document.getElementById("submitbutton");
   button.innerHTML = "Success!";
   button.style.background = "#00bf6c";
   setTimeout(() => {
-    window.location.reload();
+    window.location.href="view.html?id="+id;
   }, 1000);
 }
 
@@ -16,8 +16,6 @@ function send_failed() {
   var button = document.getElementById("submitbutton");
   var innerhtml = button.innerHTML;
   var background = button.style.background;
-  console.log(innerhtml + " " + background);
-
   button.innerHTML = "Failed";
   button.style.background = "#c40000";
   setTimeout(() => {
@@ -26,9 +24,9 @@ function send_failed() {
   }, 2);
 }
 
-function submitcadet() {
+function sendannouncement() {
   var xhr = new XMLHttpRequest();
-  var url = "/api/cadets/create?token=" + getCookie("token");
+  var url = "/api/announcements/create?token=" + getCookie("token");
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -38,25 +36,21 @@ function submitcadet() {
         console.log("Error");
         console.log(json);
         send_failed();
-        
         check_token();
       } else {
-        send_success();
+        send_success(json.id);
         console.log(json);
       }
     }
   };
   var data = JSON.stringify({
-    firstname: document.getElementById("firstname").value,
-    lastname: document.getElementById("lastname").value,
-    role: document.getElementById("role").value,
-    email: document.getElementById("email").value,
+    title: document.getElementById("title").value,
     deltas: editor.getContents().ops
   });
   xhr.send(data);
 }
 
-var editor = new Quill("#description", {
+var editor = new Quill("#announcement", {
   modules: {
     toolbar: [
       [{ font: [] }, { size: [] }],

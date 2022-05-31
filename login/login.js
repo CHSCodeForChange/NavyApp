@@ -90,8 +90,11 @@ function check_token() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
             console.log(json);
-            if (json.success) {
+            if (json.valid) {
                 window.location.href = "/Dashboard/dashboard.html";
+            } else {
+                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             }
         }
     };

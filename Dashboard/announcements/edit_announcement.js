@@ -1,14 +1,38 @@
 window.onload = function () {
   check_token();
   count_unread_messages();
+  get_edits();
 };
+
+function get_edits() {
+  var xhr = new XMLHttpRequest();
+  var parameters = new URLSearchParams(window.location.search);
+  var url = "/api/announcements/edit?token=" + getCookie("token") + "&id=" + parameters.get('id');
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var json = JSON.parse(xhr.responseText);
+      if (!json.success) {
+        console.log("Error");
+        console.log(json);
+      } else {
+        console.log(json);
+        document.getElementById("title").value = json.title;
+        editor.setContents(json.deltas);
+      }
+    }
+  }
+  xhr.send();
+}
 
 function send_success() {
   var button = document.getElementById("submitbutton");
   button.innerHTML = "Success!";
   button.style.background = "#00bf6c";
+  var parameters = new URLSearchParams(window.location.search);
   setTimeout(() => {
-    window.location.reload();
+    window.location.href="view.html?id="+parameters.get('id');
   }, 1000);
 }
 
@@ -16,8 +40,6 @@ function send_failed() {
   var button = document.getElementById("submitbutton");
   var innerhtml = button.innerHTML;
   var background = button.style.background;
-  console.log(innerhtml + " " + background);
-
   button.innerHTML = "Failed";
   button.style.background = "#c40000";
   setTimeout(() => {
@@ -26,9 +48,11 @@ function send_failed() {
   }, 2);
 }
 
-function submitcadet() {
+function sendannouncement() {
   var xhr = new XMLHttpRequest();
-  var url = "/api/cadets/create?token=" + getCookie("token");
+  var parameters = new URLSearchParams(window.location.search);
+  var url = "/api/announcements/update?token=" + getCookie("token")+"&id="+parameters.get('id');
+  console.log(url);
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -38,7 +62,6 @@ function submitcadet() {
         console.log("Error");
         console.log(json);
         send_failed();
-        
         check_token();
       } else {
         send_success();
@@ -47,16 +70,13 @@ function submitcadet() {
     }
   };
   var data = JSON.stringify({
-    firstname: document.getElementById("firstname").value,
-    lastname: document.getElementById("lastname").value,
-    role: document.getElementById("role").value,
-    email: document.getElementById("email").value,
+    title: document.getElementById("title").value,
     deltas: editor.getContents().ops
   });
   xhr.send(data);
 }
 
-var editor = new Quill("#description", {
+var editor = new Quill("#announcement", {
   modules: {
     toolbar: [
       [{ font: [] }, { size: [] }],
