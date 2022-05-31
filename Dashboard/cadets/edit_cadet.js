@@ -7,7 +7,11 @@ window.onload = function () {
 function get_edits() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
-  var url = "/api/announcements/edit?token=" + getCookie("token") + "&id=" + parameters.get('id');
+  var url =
+    "/api/announcements/edit?token=" +
+    getCookie("token") +
+    "&id=" +
+    parameters.get("id");
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -22,7 +26,7 @@ function get_edits() {
         editor.setContents(json.deltas);
       }
     }
-  }
+  };
   xhr.send();
 }
 
@@ -32,7 +36,7 @@ function send_success() {
   button.style.background = "#00bf6c";
   var parameters = new URLSearchParams(window.location.search);
   setTimeout(() => {
-    window.location.href="view.html?id="+parameters.get('id');
+    window.location.href = "view.html?id=" + parameters.get("id");
   }, 1000);
 }
 
@@ -51,7 +55,11 @@ function send_failed() {
 function sendcadet() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
-  var url = "/api/announcements/update?token=" + getCookie("token")+"&id="+parameters.get('id');
+  var url =
+    "/api/announcements/update?token=" +
+    getCookie("token") +
+    "&id=" +
+    parameters.get("id");
   console.log(url);
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -71,7 +79,7 @@ function sendcadet() {
   };
   var data = JSON.stringify({
     title: document.getElementById("title").value,
-    deltas: editor.getContents().ops
+    deltas: editor.getContents().ops,
   });
   xhr.send(data);
 }
@@ -88,11 +96,11 @@ var editor = new Quill("#announcement", {
         { list: "ordered" },
         { list: "bullet" },
         { indent: "-1" },
-        { indent: "+1" }
+        { indent: "+1" },
       ],
       ["direction", { align: [] }],
-      ["link", "clean"]
-    ]
+      ["link", "clean"],
+    ],
   },
-  theme: "snow"
+  theme: "snow",
 });

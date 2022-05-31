@@ -7,7 +7,11 @@ window.onload = function () {
 function load_cadet() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
-  var url = "/api/cadets/get?token=" + getCookie("token") + "&id=" + parameters.get('id');
+  var url =
+    "/api/cadets/get?token=" +
+    getCookie("token") +
+    "&id=" +
+    parameters.get("id");
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
@@ -18,9 +22,10 @@ function load_cadet() {
         console.log(json);
       } else {
         console.log(json);
-        document.getElementById("title").innerHTML = json.firstname+" "+json.lastname;
-        document.getElementById("role").innerHTML = "Role: "+json.role;
-        document.getElementById("email").innerHTML = "Email: "+ json.email;
+        document.getElementById("title").innerHTML =
+          json.firstname + " " + json.lastname;
+        document.getElementById("role").innerHTML = "Role: " + json.role;
+        document.getElementById("email").innerHTML = "Email: " + json.email;
         document.getElementById("description").innerHTML = json.html;
         console.log("HI");
       }

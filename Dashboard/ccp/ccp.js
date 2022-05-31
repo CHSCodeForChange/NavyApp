@@ -38,7 +38,7 @@ function submitcadet() {
         console.log("Error");
         console.log(json);
         send_failed();
-        
+
         check_token();
       } else {
         send_success();
@@ -51,7 +51,7 @@ function submitcadet() {
     lastname: document.getElementById("lastname").value,
     role: document.getElementById("role").value,
     email: document.getElementById("email").value,
-    deltas: editor.getContents().ops
+    deltas: editor.getContents().ops,
   });
   xhr.send(data);
 }
@@ -68,11 +68,11 @@ var editor = new Quill("#description", {
         { list: "ordered" },
         { list: "bullet" },
         { indent: "-1" },
-        { indent: "+1" }
+        { indent: "+1" },
       ],
       ["direction", { align: [] }],
-      ["link", "clean"]
-    ]
+      ["link", "clean"],
+    ],
   },
-  theme: "snow"
+  theme: "snow",
 });

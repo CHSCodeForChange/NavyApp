@@ -8,7 +8,7 @@ function send_success(id) {
   button.innerHTML = "Success!";
   button.style.background = "#00bf6c";
   setTimeout(() => {
-    window.location.href="view.html?id="+id;
+    window.location.href = "view.html?id=" + id;
   }, 1000);
 }
 
@@ -45,7 +45,7 @@ function sendannouncement() {
   };
   var data = JSON.stringify({
     title: document.getElementById("title").value,
-    deltas: editor.getContents().ops
+    deltas: editor.getContents().ops,
   });
   xhr.send(data);
 }
@@ -62,11 +62,11 @@ var editor = new Quill("#announcement", {
         { list: "ordered" },
         { list: "bullet" },
         { indent: "-1" },
-        { indent: "+1" }
+        { indent: "+1" },
       ],
       ["direction", { align: [] }],
-      ["link", "clean"]
-    ]
+      ["link", "clean"],
+    ],
   },
-  theme: "snow"
+  theme: "snow",
 });

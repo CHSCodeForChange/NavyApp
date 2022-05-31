@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Announcement</title>
     <!--Material Icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href="../dashboard.css" rel="stylesheet">
-    <link href="view_announcement.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link href="../dashboard.css" rel="stylesheet" />
+    <link href="view_announcement.css" rel="stylesheet" />
     <script src="/mainlibrary.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <aside>
-            <div class="sidebar">
-                <a href="../dashboard.html">
-                    <span class="material-icons-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="../ccp/ccp.html">
-                    <span class="material-icons-sharp">person_outline</span>
-                    <h3>Create Cadet</h3>
-                </a>
-                <a href="../ACE/ACE.html">
-                    <span class="material-icons-sharp">mail</span>
-                    <h3>Messages</h3>
-                    <span id="unread_messages_count" class="message-count">54</span>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">send</span>
-                    <h3>Send</h3>
-                </a>
-                <a href="../CA/ca.html">
-                    <span class="material-icons-sharp">add</span>
-                    <h3>Add Event</h3>
-                </a>
-                <a href="../../index.html">
-                    <span class="material-icons-sharp">logout</span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
-        <!--End of Aside-->
-        <main>
+      <aside>
+        <div class="sidebar">
+          <a href="../dashboard.html">
+            <span class="material-icons-sharp">grid_view</span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="../ccp/ccp.html">
+            <span class="material-icons-sharp">person_outline</span>
+            <h3>Create Cadet</h3>
+          </a>
+          <a href="../ACE/ACE.html">
+            <span class="material-icons-sharp">mail</span>
+            <h3>Messages</h3>
+            <span id="unread_messages_count" class="message-count">54</span>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp">send</span>
+            <h3>Send</h3>
+          </a>
+          <a href="../CA/ca.html">
+            <span class="material-icons-sharp">add</span>
+            <h3>Add Event</h3>
+          </a>
+          <a href="../../index.html">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+      <!--End of Aside-->
+      <main>
+        <div class="form">
+          <!-- <div style="display:flex; justify-items: baseline;"><span id="title" class="title"></span><a href="">edit</a></div> -->
+          <style>
+            .editannouncement {
+              color: inherit;
+              transition: 0.3s;
+            }
+            .editannouncement:hover {
+              color: #777;
+            }
+          </style>
+          <a
+            onclick="window.location='edit.html'+window.location.search;"
+            class="editannouncement"
+          >
+            <span id="title" class="title"></span>
+            <span style="margin-left: 5px" class="material-icons-sharp"
+              >edit_note</span
+            >
+          </a>
+          <div
+            id="subtitle"
+            class="subtitle"
+            style="margin-top: -10px; margin-bottom: 10px"
+          ></div>
+          <div id="announcement" class="announcement"></div>
+        </div>
 
-            <div class="form">
-
-                <!-- <div style="display:flex; justify-items: baseline;"><span id="title" class="title"></span><a href="">edit</a></div> -->
-                <style>
-                    .editannouncement {
-                        color: inherit;
-                        transition: 0.3s;
-                    }
-                    .editannouncement:hover {
-                        color: #777;
-                    }
-                </style>
-                <a onclick="window.location='edit.html'+window.location.search;" class="editannouncement">
-                    <span id="title" class="title"></span>
-                    <span style="margin-left: 5px;" class="material-icons-sharp">edit_note</span>
-                </a>
-                <div id="subtitle" class="subtitle" style="margin-top: -10px; margin-bottom: 10px;"></div>
-                <div id="announcement" class="announcement">
-                </div>
-            </div>
-
-            <script src="view_announcement.js"></script>
-        </main>
+        <script src="view_announcement.js"></script>
+      </main>
     </div>
-
-</body>
-
+  </body>
 </html>
