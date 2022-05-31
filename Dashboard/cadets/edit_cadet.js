@@ -48,7 +48,7 @@ function send_failed() {
   }, 2);
 }
 
-function sendannouncement() {
+function sendcadet() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
   var url = "/api/announcements/update?token=" + getCookie("token")+"&id="+parameters.get('id');
