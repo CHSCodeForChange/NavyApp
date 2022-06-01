@@ -15,50 +15,14 @@
   </head>
   <body>
     <div class="container">
-      <aside>
-        <div class="top">
-          <div class="logo">
-            <h2 class="text-muted">Navy <span class="danger">Cadets</span></h2>
-          </div>
-          <div class="close" id="close-btn">
-            <span class="material-icons-sharp">close</span>
-          </div>
-        </div>
-        <div class="sidebar">
-          <a href="#">
-            <span class="material-icons-sharp">grid_view</span>
-            <h3>Dashboard</h3>
-          </a>
-          <a href="ccp/ccp.html">
-            <span class="material-icons-sharp">person_outline</span>
-            <h3>Create Cadet</h3>
-          </a>
-          <a href="ACE/ACE.html">
-            <span class="material-icons-sharp">mail</span>
-            <h3>Messages</h3>
-            <span class="message-count" id="unread_messages_count"></span>
-          </a>
-          <a href="announcements/create_announcement.html">
-            <span class="material-icons-sharp">send</span>
-            <h3>Send</h3>
-          </a>
-          <a href="CA\ca.html">
-            <span class="material-icons-sharp">add</span>
-            <h3>Add Event</h3>
-          </a>
-          <a onclick="logout()">
-            <span class="material-icons-sharp">logout</span>
-            <h3>Logout</h3>
-          </a>
-        </div>
-      </aside>
-      <!--End of Aside-->
+      <!--Server Side Includes-->
+      <!--#include file="/dashboard/sidebar.html"-->
       <main>
         <h1>Dashboard</h1>
 
-        <div class="date">
+        <!-- <div class="date">
           <input type="date" />
-        </div>
+        </div> -->
         <div class="insights">
           <div class="sales">
             <span class="material-icons-sharp">analytics</span>

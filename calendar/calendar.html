@@ -16,6 +16,24 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <style>
+      html,body {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+      }
+      .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+      }
+
+      .calendar {
+        flex: 0 1 auto;
+        height:100%;
+      }
+
+    </style>
   </head>
   <body style="background-color: rgb(0, 0, 0)">
     <!-- Navbar Section -->
@@ -50,7 +68,38 @@
         </ul>
       </div>
     </nav>
-    <img src="../CalendarPic.jpg" height="100%," width="100%" />
+    <style>
+      .loadingtext {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        margin-top: 10rem;
+      }
+    </style>
+    <div class="box" id="calendarframe">
+      <h2 class="loadingtext">Loading...</h2>
+    </div>
+    <script>
+      window.onload= function() {
+        getCalendar();
+      }
+      function getCalendar() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/api/calendar/url", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            document.getElementById("calendarframe").innerHTML =
+              '<iframe class="calendar" src="' +
+              response.url +
+              '" style="border: 0" frameborder="0" scrolling="no"></iframe>';
+          }
+        };
+        xhr.send();
+      }
+    </script>
     <script src="../app.js"></script>
   </body>
 </html>

@@ -1,6 +1,4 @@
 window.onload = function () {
-  check_token();
-  count_unread_messages();
   get_edits();
 };
 
@@ -8,7 +6,7 @@ function get_edits() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
   var url =
-    "/api/announcements/edit?token=" +
+    "/api/cadets/edit?token=" +
     getCookie("token") +
     "&id=" +
     parameters.get("id");
@@ -22,7 +20,10 @@ function get_edits() {
         console.log(json);
       } else {
         console.log(json);
-        document.getElementById("title").value = json.title;
+        document.getElementById("firstname").value = json.firstname;
+        document.getElementById("lastname").value = json.lastname;
+        document.getElementById("email").value = json.email;
+        document.getElementById("role").value = json.role;
         editor.setContents(json.deltas);
       }
     }
@@ -56,7 +57,7 @@ function sendcadet() {
   var xhr = new XMLHttpRequest();
   var parameters = new URLSearchParams(window.location.search);
   var url =
-    "/api/announcements/update?token=" +
+    "/api/cadets/update?token=" +
     getCookie("token") +
     "&id=" +
     parameters.get("id");
@@ -78,13 +79,16 @@ function sendcadet() {
     }
   };
   var data = JSON.stringify({
-    title: document.getElementById("title").value,
+    firstname: document.getElementById("firstname").value,
+    lastname: document.getElementById("lastname").value,
+    role: document.getElementById("role").value,
+    email: document.getElementById("email").value,
     deltas: editor.getContents().ops,
   });
   xhr.send(data);
 }
 
-var editor = new Quill("#announcement", {
+var editor = new Quill("#description", {
   modules: {
     toolbar: [
       [{ font: [] }, { size: [] }],

@@ -1,7 +1,5 @@
 window.onload = function () {
-  check_token();
   getdashboard();
-  count_unread_messages();
 };
 
 function getdashboard() {
@@ -30,7 +28,7 @@ function getdashboard() {
           cadettable += `<td>${cadet.firstname} ${cadet.lastname}</td>`;
           cadettable += `<td>${cadet.shortdescript}</td>`;
           cadettable += `<td>${cadet.role}</td>`;
-          cadettable += `<td><a class="primary" href="/Dashboard/cadets/view.html?id=${cadet._id}">More Info</a></td>`;
+          cadettable += `<td><a class="primary" href="/dashboard/cadets/view.html?id=${cadet._id}">More Info</a></td>`;
           cadettable += `</tr>`;
         }
         document.getElementById("cadetpreview").innerHTML = cadettable;

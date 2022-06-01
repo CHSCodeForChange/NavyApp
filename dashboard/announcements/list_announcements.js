@@ -1,8 +1,15 @@
-window.onload = refreshannouncements(0, 50);
-function refreshannouncements(page, amount) {
-  var announcementslist = document.getElementById("announcementslist");
+function updatelist() {
+  var amount = document.getElementById("amount").value;
+  var page = document.getElementById("page").value;
+  try {
+    amount = parseInt(amount);
+    page = parseInt(page);
+  } catch (e) {
+    console.log(e);
+    return;
+  }
   var xhr = new XMLHttpRequest();
-  var url = "/api/announcementrange";
+  var url = "/api/announcements/list";
   url += "?page=" + page + "&amount=" + amount;
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -15,13 +22,6 @@ function refreshannouncements(page, amount) {
       } else {
         console.log(json);
         var htmlstr = "";
-        htmlstr = "<thead><tr>";
-        htmlstr += "<th>ID</th>";
-        htmlstr += "<th>Title</th>";
-        htmlstr += "<th>Description</th>";
-        htmlstr += "<th>Date</th>";
-        htmlstr += "</tr></thead>";
-        htmlstr += "<tbody>";
         for (var i = 0; i < json.announcements.length; i++) {
           var announcement = json.announcements[i];
           htmlstr += "<tr>";
@@ -29,12 +29,13 @@ function refreshannouncements(page, amount) {
           htmlstr += `<td>${announcement.title}</td>`;
           htmlstr += `<td>${announcement.shortdescript}</td>`;
           htmlstr += `<td>${announcement.dateadded}</td>`;
+          htmlstr += `<td><a href="/dashboard/announcements/view.html?id=${announcement._id}">View</a></td>`;
           htmlstr += `</tr>`;
         }
-        htmlstr += "</tbody>";
-        announcementslist.innerHTML = "";
         announcementslist.innerHTML = htmlstr;
       }
+
+      document.getElementById("announcement_count").innerHTML = "<strong> "+json.count+"</strong>";
     }
   };
   xhr.send();

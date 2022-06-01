@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             json.expires +
             ";path=/";
           setTimeout(() => {
-            window.location.href = "/Dashboard/dashboard.html";
+            window.location.href = "/dashboard/dashboard.html";
           }, 1000);
         } else {
           setFormMessage(
@@ -116,7 +116,7 @@ function check_token() {
       var json = JSON.parse(xhr.responseText);
       console.log(json);
       if (json.valid) {
-        window.location.href = "/Dashboard/dashboard.html";
+        window.location.href = "/dashboard/dashboard.html";
       } else {
         document.cookie =
           "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
