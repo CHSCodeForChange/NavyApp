@@ -20,6 +20,7 @@ function refreshannouncements(page, amount) {
         htmlstr += "<th>Title</th>";
         htmlstr += "<th>Description</th>";
         htmlstr += "<th>Date</th>";
+        htmlstr += "<th>Open</th>";
         htmlstr += "</tr></thead>";
         htmlstr += "<tbody>";
         for (var i = 0; i < json.announcements.length; i++) {
@@ -29,6 +30,7 @@ function refreshannouncements(page, amount) {
           htmlstr += `<td>${announcement.title}</td>`;
           htmlstr += `<td>${announcement.shortdescript}</td>`;
           htmlstr += `<td>${announcement.dateadded}</td>`;
+          htmlstr += `<td><a href="/announcements/view.html?id=${announcement._id}">Open</a></td>`;
           htmlstr += `</tr>`;
         }
         htmlstr += "</tbody>";

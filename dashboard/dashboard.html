@@ -1,79 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!--Material Icons-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-      rel="stylesheet"
-    />
-    <link href="dashboard.css" rel="stylesheet" />
-    <script src="/mainlibrary.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <!--Server Side Includes-->
-      <!--#include file="/dashboard/sidebar.html"-->
-      <main>
-        <h1>Dashboard</h1>
 
-        <!-- <div class="date">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!--Material Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link href="dashboard.css" rel="stylesheet" />
+  <script src="/mainlibrary.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!--Server Side Includes-->
+    <!--#include file="/dashboard/sidebar.html"-->
+    <main>
+      <h1>Dashboard</h1>
+
+      <!-- <div class="date">
           <input type="date" />
         </div> -->
-        <div class="insights">
-          <div class="sales">
-            <span class="material-icons-sharp">analytics</span>
-            <div class="middle">
-              <div class="left">
-                <h3>Total Cadets</h3>
-                <h1 id="cadetcount">--</h1>
-              </div>
+      <div class="insights">
+        <div class="sales">
+          <span class="material-icons-sharp">analytics</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Cadets</h3>
+              <h1 id="cadetcount">--</h1>
             </div>
           </div>
         </div>
-
-        <div class="recent-orders">
-          <h2>Cadets</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>About</th>
-                <th>Role</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="cadetpreview">
-              <tr>
-                <td>Diego Valencia</td>
-                <td>Bad at Valorant</td>
-                <td>NEU Student</td>
-                <td class="primary">More Info</td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- <a href="">Show All</a>-->
+      </div>
+      <div class="recent-orders">
+        <h2>Cadets</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>About</th>
+              <th>Role</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="cadetslist">
+    
+          </tbody>
+        </table>
+        <!-- <a href="">Show All</a>-->
+        <style>
+          .page-selector {
+            background: var(--color-white);
+            width: 100%;
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            text-align: right;
+            box-shadow: var(--box-shadow);
+            transition: all 300ms ease;
+          }
+        </style>
+    
+        <div class="page-selector">
+          <label for="amount"><strong>Showing </strong></label>
+          <select name="amount" id="amount" onchange="updatelist()" style="-webkit-appearance: menulist;">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+          <label for="amount"><strong> items out of </strong></label>
+          <label id="cadet_count"></label>
+          <label for="page" style="margin-left: 20px;"><strong>Page: </strong></label>
+          <input type="number" name="page" id="page" value="1" style="width:50px" onchange="updatelist()" />
         </div>
-      </main>
+    
+      </div>
+  </div>
+  </main>
 
-      <div class="right">
-        <div class="top"></div>
-        <div class="profile">
-          <div class="info">
-            <p>Welcome, <b id="usernamebold">Admin</b></p>
-            <small class="text-muted" id="usernamesecondary">Admin</small>
-          </div>
-          <div class="profile-photo">
-            <img
-              src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
-            />
-          </div>
-        </div>
+  <div class="right">
+    <div class="top"></div>
+    <div class="profile">
+      <div class="info">
+        <p>Welcome, <b id="usernamebold">Admin</b></p>
+        <small class="text-muted" id="usernamesecondary">Admin</small>
+      </div>
+      <div class="profile-photo">
+        <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" />
       </div>
     </div>
-    <script src="dashboard.js"></script>
-  </body>
+  </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+
 </html>

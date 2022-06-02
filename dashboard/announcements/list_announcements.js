@@ -32,6 +32,7 @@ function updatelist() {
           htmlstr += `<td><a href="/dashboard/announcements/view.html?id=${announcement._id}">View</a></td>`;
           htmlstr += `</tr>`;
         }
+        var announcementslist = document.getElementById("announcementslist");
         announcementslist.innerHTML = htmlstr;
       }
 

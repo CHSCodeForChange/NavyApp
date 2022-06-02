@@ -83,5 +83,3 @@ function count_unread_messages() {
   };
   xhr.send();
 }
-
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
