@@ -10,24 +10,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
   <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
-  <script src="https://unpkg.com/quill-image-uploader@1.2.2/dist/quill.imageUploader.min.js"></script>
-  <link href="../dashboard.css" rel="stylesheet" />
-  <link href="edit_announcement.css" rel="stylesheet" />
-  <script src="/mainlibrary.js"></script>
+  <script src="https://unpkg.com/quill-image-uploader@1.2.1/dist/quill.imageUploader.min.js"></script>
+
+  <link href="/dashboard/dashboard.css" rel="stylesheet" />
+
+  <link href="edit_links.css" rel="stylesheet" />
 </head>
 
 <body>
   <div class="container">
     <!--#include file="/dashboard/sidebar.html"-->
     <main>
+
       <div class="form">
-        <div class="title">Edit Announcement</div>
-        <div class="subtitle">Input the Information!</div>
-        <div class="input-container ic1">
-          <input id="title" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="title" class="placeholder">Title</label>
-        </div>
+        <div class="title">Edit Important Links</div>
         <style>
           .announcement {
             height: 80%;
@@ -36,10 +32,9 @@
             border-radius: 12px;
             resize: none;
             margin-top: 30px;
-            padding: 20px;
+            padding: 20px 20px 60px 20px;
             background-color: #eee;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            height: auto;
           }
 
           .announcement-edit {
@@ -52,17 +47,23 @@
             background-color: #eee;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           }
+
+          .ql-container {
+            height: auto;
+          }
         </style>
-        <div id="announcement">
+        <div id="linkedit">
+
         </div>
+
         <!-- <div class="announcement">
-          <div style="overflow-y: auto; width: 100%; height: 100%">
-            <div id="announcement">
+            
+            <div style="overflow-y: auto; width: 100%; height: 100%">
+              
             </div>
-          </div>
-        </div> -->
-        <script src="edit_announcement.js"></script>
-        <button id="submitbutton" onclick="sendannouncement()" type="text" class="submit">
+          </div> -->
+        <script src="edit_links.js"></script>
+        <button id="submitbutton" onclick="sendlinks()" type="text" class="submit">
           Send
         </button>
       </div>

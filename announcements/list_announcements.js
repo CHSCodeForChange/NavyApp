@@ -15,13 +15,13 @@ function refreshannouncements(page, amount) {
       } else {
         console.log(json);
         var htmlstr = "";
-        htmlstr = "<thead><tr>";
-        htmlstr += "<th>ID</th>";
-        htmlstr += "<th>Title</th>";
-        htmlstr += "<th>Description</th>";
-        htmlstr += "<th>Date</th>";
-        htmlstr += "<th>Open</th>";
-        htmlstr += "</tr></thead>";
+        // htmlstr = "<thead><tr>";
+        // htmlstr += "<th>ID</th>";
+        // htmlstr += "<th>Title</th>";
+        // htmlstr += "<th>Description</th>";
+        // htmlstr += "<th>Date</th>";
+        // htmlstr += "<th>Open</th>";
+        // htmlstr += "</tr></thead>";
         htmlstr += "<tbody>";
         for (var i = 0; i < json.announcements.length; i++) {
           var announcement = json.announcements[i];

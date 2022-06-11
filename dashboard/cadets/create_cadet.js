@@ -1,6 +1,5 @@
 window.onload = function () {
   check_token();
-  count_unread_messages();
 };
 
 function send_success() {
@@ -55,7 +54,7 @@ function submitcadet() {
   });
   xhr.send(data);
 }
-
+Quill.register("modules/imageUploader", ImageUploader);
 var editor = new Quill("#description", {
   modules: {
     toolbar: [
@@ -72,7 +71,34 @@ var editor = new Quill("#description", {
       ],
       ["direction", { align: [] }],
       ["link", "clean"],
+      ["image"]
     ],
+    imageUploader: {
+      upload: file => {
+        return new Promise((resolve, reject) => {
+          const formData = new FormData();
+          formData.append("image", file);
+
+          fetch(
+            "/api/images/upload?token="+getCookie("token"),
+            {
+              method: "POST",
+              body: formData
+            }
+          )
+            .then(response => response.json())
+            .then(result => {
+              console.log(result);
+              resolve(result.data.url);
+            })
+            .catch(error => {
+              reject("Upload failed");
+              console.error("Error:", error);
+            });
+        });
+      }
+    }
   },
   theme: "snow",
 });
+

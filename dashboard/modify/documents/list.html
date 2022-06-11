@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <!--Material Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link href="list_documents.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <!--#include file="/dashboard/sidebar.html"-->
+    <main>
+      <h1>Documents</h1>
+
+      <div class="recent-orders">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Filename</th>
+              <th>URL</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="announcementslist">
+          </tbody>
+        </table>
+        <!-- <a href="">Show All</a>-->
+        <!-- <style>
+          .page-selector {
+            background: var(--color-white); 
+            width: 100%;
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            text-align: right;
+            box-shadow: var(--box-shadow);
+            transition: all 300ms ease;
+          }
+        </style>
+        
+        <div class="page-selector">
+          <label for="amount"><strong>Showing </strong></label>
+          <select name="amount" id="amount" onchange="updatelist()" style="-webkit-appearance: menulist;">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+          <label for="amount"><strong> items out of </strong></label>
+          <label id="announcement_count"></label>
+          <label for="page" style="margin-left: 20px;"><strong>Page: </strong></label>
+          <input type="number" name="page" id="page" value="1" style="width:50px" onchange="updatelist()"/>
+        </div> -->
+
+      </div>
+
+
+    </main>
+
+    <!-- <div class="right">
+      <div class="top"></div>
+      <div class="profile">
+        <div class="info">
+          <p>Welcome, <b>Admin</b></p>
+          <small class="text-muted">Admin</small>
+        </div>
+        <div class="profile-photo">
+          <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" />
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <script src="list_documents.js"></script>
+  <script>
+    window.addEventListener("load", function() {
+      updatelist();
+    }, false);
+  </script>
+</body>
+
+</html>
